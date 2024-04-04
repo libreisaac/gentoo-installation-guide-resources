@@ -95,7 +95,7 @@ Back in our terminal, if we `ls`, it should list both files. We'll run `gpg --im
 
 Now we can `rm` (remove) the `.asc` file because we're done with it, before running `mv ./stage3`, hit tab to autocomplete to the `.tar.xz` file, then type ` /mnt/gentoo` to move the file to the root of the Gentoo system we're building. Then we'll type `cd /mnt/gentoo` to change our terminal's working directory.
 
-It's time to unpack our Stage3. This archive contains an absolutely minimal base Gentoo system which we can use to configure, compile, and install all of our own software. It does, necessarily, contain many binaries, but we'll recompile them at the first opportunity. We'll type `tar xpvf --xattrs-include="*.*" --numeric-owner ./stage3`, hit tab to auto-complete, and hit enter to start unpacking.
+It's time to unpack our Stage3. This archive contains an absolutely minimal base Gentoo system which we can use to configure, compile, and install all of our own software. It does, necessarily, contain many binaries, but we'll recompile them at the first opportunity. We'll type `tar xpvf  ./stage3`, hit tab to auto-complete, then` --xattrs-include="*.*" --numeric-owner, and hit enter to start unpacking.
 
 ## Pre-Chroot Configuration
 
