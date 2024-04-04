@@ -1,6 +1,6 @@
 # Gentoo Installation Guide Resources
 
-This repostiroy contains transcripts of my Gentoo installation guide located at TODO:LINK.
+This repository contains transcripts of my Gentoo installation guide located at TODO:LINK.
 
 ## Related Repositories
 
