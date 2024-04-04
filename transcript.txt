@@ -95,9 +95,9 @@ Now we'll hop back into another terminal with 'Alt + Right', and run 'blkid', or
 
 It's very important you get this file correct, so go ahead and pause, and double and triple check everything.
 
-Now we're going to write a configuration file for Grub the bootloader, which is the program which actually launches Linux when you turn on your computer. We'll need to tell Grub how to decrypt our root, so we'll run 'nano ./etc/defaults/grub', and write the lines 'GRUB_DISABLE_LINUX_PARTUUID=false', 'GRUB_DISTRIBUTOR="Gentoo"', and 'GRUB_TIMEOUT=3' to set the timeout of the Grub menu before it defaults to the first option to 3 seconds. You can set this however you like, but I'd recommend 2 seconds as the minimum. The default is 5.
+Now we're going to write a configuration file for Grub the bootloader, which is the program which actually launches Linux when you turn on your computer. We'll need to tell Grub how to decrypt our root, so we'll run 'nano ./etc/default/grub', and write the lines 'GRUB_DISABLE_LINUX_PARTUUID=false', 'GRUB_DISTRIBUTOR="Gentoo"', and 'GRUB_TIMEOUT=3' to set the timeout of the Grub menu before it defaults to the first option to 3 seconds. You can set this however you like, but I'd recommend 2 seconds as the minimum. The default is 5.
 
-Now we'll write the lines 'GRUB_ENABLE_CRYPTODISK=y', and 'GRUB_CMDLINE_LINUX_DEFAULT=crypt_root=UUID= quiet'. We need to get the partition UUID for our root partition, so over in another terminal we'll run 'blkid /dev/sda2', or whatever your root partition's identifier was, then copy the UUID.
+Now we'll write the lines 'GRUB_ENABLE_CRYPTODISK=y', and 'GRUB_CMDLINE_LINUX_DEFAULT="crypt_root=UUID= quiet"'. We need to get the partition UUID for our root partition, so over in another terminal we'll run 'blkid /dev/sda2', or whatever your root partition's identifier was, then copy the UUID.
 
 Again, this file is very important, and if you don't get it right, it will be a hassle to fix. Pause, and check it all.
 
@@ -115,9 +115,9 @@ Rather than have you type out every single line of the Portage files manually, I
 
 So, we'll run 'wget https://github.com/libreisaac/portage-config/archive/refs/heads/main.zip' to download my portage configuration templates from GitHub.
 
-Then we'll run 'unzip ./main.zip', 'rm ./main.zip', and 'ls -a ./portage-config' so you can see all of the files, including hidden files, if there were any, which you're about to add to your system.
+Then we'll run 'unzip ./main.zip', 'rm ./main.zip', and 'ls -a ./portage-config-main' so you can see all of the files, including hidden files, if there were any, which you're about to add to your system.
 
-Next, we'll move all the files in that directory with 'mv ./portage-config/* ./etc/portage', and, now that the directory is empty, 'rm -r ./portage-config', before running 'mkdir ./etc/portage/env', and 'mv ./etc/portage/no-lto' to ' ./etc/portage/env'.
+Next, we'll move all the files in that directory with 'mv ./portage-config-main/* ./etc/portage', and, now that the directory is empty, 'rm -r ./portage-config-main', before running 'mkdir ./etc/portage/env', and 'mv ./etc/portage/no-lto' to ' ./etc/portage/env'.
 
 Now, we can start looking at these files; there will be things for you to change and again, it's crucial you understand them.
 
@@ -287,7 +287,7 @@ If you don't want a GUI, or you want to install your own, click the card in the 
 
 To build a desktop environment using Sway, we're going to first download some configuration files similar to what we did for our portage configuration.
 
-Run 'wget https://github.com/libreisaac/sway-config/archive/refs/heads/main.zip', then 'unzip main.zip', 'cd' into 'sway-config', and 'ls -a' to see what's in here.
+Run 'wget https://github.com/libreisaac/sway-config/archive/refs/heads/main.zip', then 'unzip main.zip', 'cd' into 'sway-config-main', and 'ls -a' to see what's in here.
 
 First, there's a 'sway.sh' script which we can view with 'nano'.
 
@@ -305,7 +305,7 @@ We'll append these USE flags to our 'package.use' file by running 'cat package.u
 
 Now we can 'rm ./package.use.append'. The only thing remaining is the '.config' folder, which we'll move into our home directory with 'mv .config ~/'.
 
-Now we can 'cd ../' to go back one directory, and 'rm ./sway-config -r', since that directory is empty now. 
+Now we can 'cd ../' to go back one directory, and 'rm ./sway-config-main -r', since that directory is empty now. 
 
 Now it's time to emerge the packages for our Sway environment. I'll type the command out quickly...
 
