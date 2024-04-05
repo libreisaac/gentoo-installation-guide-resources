@@ -119,7 +119,7 @@ Next, we'll `nano ./etc/conf.d/hwclock`. You _probably_ don't need to change thi
 
 Now we'll open `./etc/conf.d/keymaps`, where we'll change `us` to whatever keyboard layout we need. For me, that's `uk`.
 
-If you're not sure what to write here, we can switch to another terminal by pressing `Alt + Right`, then run `ls /usr/local/keymaps/i386/qwerty`, assuming you're using a QWERTY keyboard, which will list all of the available keymaps of that type. There's a `uk.map.gz` file, which is mine, but you can use any of the options here. Just remove the `.map.gz` from the name, and that's the value you'll input.
+If you're not sure what to write here, we can switch to another terminal by pressing `Alt + Right`, then run `ls /usr/share/keymaps/i386/qwerty`, assuming you're using a QWERTY keyboard, which will list all of the available keymaps of that type. There's a `uk.map.gz` file, which is mine, but you can use any of the options here. Just remove the `.map.gz` from the name, and that's the value you'll input.
 
 Switch back to the previous terminal with `Alt + Left`, and once we've set the value, we can save and exit.
 
