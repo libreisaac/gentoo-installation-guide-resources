@@ -69,7 +69,7 @@ First, run `mkfs.vfat -F 32 /dev/` then the name of your first partition, like `
 
 Now, we're going to mount our root partition, so we can use it. Run `mkdir`, short for make directory,` /mnt`, short for mount, `/root` to create a directory we can mount the parition to, then run `mount -t`, type,` btrfs -o`, options` defaults,noatime`, because we won't track file access times; there's no reason to do so, `,compress=lzo,autodefrag /dev/mapper/cryptroot /mnt/root`.
 
-Now we've mounted our root partition, we can create a couple of subvolumes. On other filesystems, like `ext4`, it's common practice to create separate partitions for various parts of your Linux system, such as `root` and `home`. With BetterFS, subvolumes achieve the same thing. Run `btrfs subvol create /mnt/root/activeroot`, then `btrfs subvol create /mnt/root/home`.
+Now we've mounted our root partition, we can create a couple of subvolumes. On other filesystems, like `ext4`, it's common practice to create separate partitions for various parts of your Linux system, such as `root` and `home`. With BetterFS, subvolumes achieve the same thing. Run `btrfs subvolume create /mnt/root/activeroot`, then `btrfs subvolume create /mnt/root/home`.
 
 Now we'll mount the `activeroot` subvolume by pressing up until we get our last `mount` command back, adding `subvol=activeroot` to our options, and changing the mount directory to `/mnt/gentoo`. Then we'll `mkdir /mnt/gentoo/home`, and mount by going back to our last `mount` command, and changing `activeroot` to `home`, and tacking `home` to the end of our mount directory.
 
