@@ -253,6 +253,23 @@ Now, there's just a few commands to run before we compile all our software. But 
 
 It's not ready for us to actually boot into it yet, but we can perform a `Change Root` from a Live CD to enter it before it's complete.
 
+First, we need to copy `/etc/resolv.conf` into `/mnt/gentoo/etc/`, so we'll still be able to talk to the internet once we change root.
+
+Now I'll write out some commands for you to copy once I've explained them.
+
+```
+mount --types proc /proc/ /mnt/gentoo/proc
+mount --rbind /sys/ /mnt/gentoo/sys
+mount --rbind /dev/ /mnt/gentoo/dev
+mount --bind /run/ /mnt/gentoo/run
+mount --make-rslave /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/dev
+mount --make-slave /mnt/gentoo/run
+chroot /mnt/gentoo /bin/bash
+source /etc/profile
+export PS1="(chroot) ${PS1}"
+```
+
 The mount commands temporarily mount some folders from the live CD to folders in our Gentoo installation, so we can have access to various binaries which don't exist in our Gentoo environment yet, then the `chroot` command changes the root to `/mnt/gentoo`, and runs `/bin/bash`, which is the terminal you've been using this whole time.
 
 The `source /etc/profile` command loads some default environment variables in the `chroot` terminal, and the `export PS1` command changes the little tag you get before each command you run, to clearly identify terminals which we've `chroot`ed; we can still change between terminals, and all the other terminals are still in our Live CD environment, so we want to make sure we're running future commands in the right place.
