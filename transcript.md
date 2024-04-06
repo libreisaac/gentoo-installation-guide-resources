@@ -15,8 +15,6 @@ The goal is to create a lightweight, heavily optimized base system consisting en
 Installing Gentoo might seem a little daunting, but I promise you can do it. While the entire installation could take many hours,
 the vast majority of that time is waiting for software to compile; so you can expect to put in about an hour of actual effort.
 
-Future videos in this series will cover topics including, but not limited to: Tor and I2P, Bitcoin and Lightning, a full office suite, OBS, video, audio and image editing software, Neovim for programming, and even Steam and Proton for gaming.
-
 That's enough rambling; let's get started.
 
 ## Media Creation Redirect
