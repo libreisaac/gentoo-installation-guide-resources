@@ -285,6 +285,8 @@ First, you should see a familiar Grub menu, only this time, the options are for 
 
 We can log in as our main user account, and run 'doas -u root passwd -l root' to lock the root user account. If you're on Wifi, you also might want to run 'nm-tui', which will open a small text UI where you can select and connect to a network.
 
+The eagle-eyed among you may have noticed an error message during the OpenRC stage of booting. If we run 'rc-status', we can see the culprit: our logging service isn't running. This is because the service is configured to rely on the 'hostname' service, which we removed. We need to open '/etc/init.d/sysklogd' as root, and comment out the 'hostname' dependency. If we save, exit and reboot, we won't see that same error message during OpenRC initialization and, once we log in, if we run 'rc-status', the logger service is running.
+
 Congratulations, you've installed Gentoo! Most of you will probably want a graphical interface with windows and pretty UI, however, so let's add one.
 
 If you don't want a GUI, or you want to install your own, click the card in the top right of the screen to get the playlist of videos in this series. While future videos will be using my Sway environemnt, they aren't dependent on it, and many don't even need a desktop environment.
