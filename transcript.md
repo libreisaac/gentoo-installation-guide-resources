@@ -469,7 +469,7 @@ Next is the input configuration, which you already changed for your keyboard lay
 
 Below input, is output. The first line defines the background, which is applied by the `swaybg` package we installed earlier. You could change this to an image, and set different backgrounds for different output devices if you wanted to.
 
-Below is a commented line which explains how to change your resolution. I'm going to uncomment it, open another terminal, run `swaymsg -t get_outputs`, and set the name of the selected output to `Virtual-1`, and change the resolution to 1080p. Save, then `Mod + Shift + C` to reload my config, and my resolution changes.
+Below is a commented line which explains how to change your resolution. I'm going to uncomment it, open another terminal, run `swaymsg -t get_outputs`, and set the name of the selected output to `Virtual-1`. Save, then `Mod + Shift + C` to reload my config, and my resolution changes.
 
 Next, we set all of our keybindings. The first, is the definition for the base modifier key, then below that is the `kill` command for the currently focused window, `Mod + Shift + Q`, which opens a prompt to close Sway and log out, the configuration reload keybinding, and `Mod + L`, which will launch `swaylock` and lock our screen. We can start typing to unlock. This UI has a capslock indicator, and we can also hit `Escape` to clear the password we've typed so far.
 
